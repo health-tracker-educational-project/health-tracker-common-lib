@@ -1,1 +1,1 @@
-# healt-tracker-common-lib
+# health-tracker-common-lib
