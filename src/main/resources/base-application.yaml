@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: common-lib
+  kafka:
+    admin:
+      properties:
+        bootstrap.servers: ${ADMIN_BOOTSTRAP:localhost:9092}
+    producer:
+      bootstrap-servers: ${PRODUCER_BOOTSTRAP:localhost:9092}
+    consumer:
+      bootstrap-servers: ${CONSUMER_BOOTSTRAP:localhost:9092}
+      auto-offset-reset: earliest
+
+kafka:
+  dlt-topic-suffix: -dlt

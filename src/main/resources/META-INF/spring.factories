@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  org.springframework.context.annotation.Configuration
+org.springframework.boot.env.EnvironmentPostProcessor=\
+  com.healthtracker.config.EnvironmentPropertiesLoader
