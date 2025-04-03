@@ -31,3 +31,6 @@ java.
     <version>1.0.0</version>  
 </dependency>
 ```
+### 5. Add annotation @DependsOn("topics") on your controllers.
+
+
