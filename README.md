@@ -22,15 +22,26 @@ java.
 
 `config`
 `wrapper`
+`pagination`
+
 ### 4. Add maven dependency to your service:
 
 ```
 <dependency>  
     <groupId>com.healthtracker</groupId>  
     <artifactId>healthtracker-common</artifactId>  
-    <version>1.0.0</version>  
+    <version>1.0.1</version>  
 </dependency>
 ```
 ### 5. Add annotation @DependsOn("topics") on your controllers.
 
+```
+@DependsOn("topics")
+@Component
+class YourController {}
+```
 
+### 6. The following dependencies can be deleted from your service:
+
+- kafka
+- lombok
