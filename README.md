@@ -45,3 +45,24 @@ class YourController {}
 
 - kafka
 - lombok
+
+### 7. Add entity list to application.yaml. Thus, kafka creates your service topics:
+
+#### application.yaml:
+```
+kafka:
+  entities:
+    - entity1(product, recipe, ...)
+    - entity2
+    - ...
+```
+#### @KafkaListener annotation(optional):
+In **topics** parameter you need to pass topic name with next template:
+
+`${kafka.topics.entity.action}`
+
+For example:
+```
+@KafkaListener(topics = "${kafka.topics.product.list-request}")
+```
+**If you already have this do nothing!**
