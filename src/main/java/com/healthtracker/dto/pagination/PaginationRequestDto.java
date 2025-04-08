@@ -6,6 +6,7 @@ import lombok.ToString;
 import org.springframework.data.domain.Sort;
 
 import java.util.List;
+import java.util.Objects;
 
 @Getter
 @Setter
@@ -18,7 +19,7 @@ public class PaginationRequestDto<S> {
     private S searchCriteria;
 
     public Sort convertToSort() {
-        return Sort.by(orders.stream()
+        return Objects.isNull(orders) ? Sort.unsorted() : Sort.by(orders.stream()
                 .map(order -> new Sort.Order(
                         Sort.Direction.fromString(order.getDirection()), order.getProperty())
                 ).toList());

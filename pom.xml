@@ -13,7 +13,7 @@
 
 	<groupId>com.healthtracker</groupId>
 	<artifactId>healthtracker-common</artifactId>
-	<version>1.0.1</version>
+	<version>1.0.2</version>
 	<name>Health Tracker/Common</name>
 	<description>Health Tracker common library</description>
 
