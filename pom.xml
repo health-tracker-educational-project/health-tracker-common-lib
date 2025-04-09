@@ -3,23 +3,17 @@
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.4.2</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<groupId>com.healthtracker</groupId>
+		<artifactId>healthtracker-parent</artifactId>
+		<version>1.0.0</version>
 	</parent>
 
 	<packaging>jar</packaging>
 
-	<groupId>com.healthtracker</groupId>
 	<artifactId>healthtracker-common</artifactId>
-	<version>1.0.2</version>
+	<version>1.0.3</version>
 	<name>Health Tracker/Common</name>
 	<description>Health Tracker common library</description>
-
-	<properties>
-		<java.version>23</java.version>
-	</properties>
 
 	<dependencies>
 		<dependency>
