@@ -12,7 +12,7 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 public @interface TopicName {
 
-    String entity() default "";
+    String entity();
     TopicAction action() default TopicAction.GET;
     TopicOperation httpType() default TopicOperation.REQUEST;
 
