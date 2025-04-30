@@ -1,7 +1,8 @@
 package com.healthtracker.annotation;
 
 import com.healthtracker.constant.TopicAction;
-import com.healthtracker.constant.TopicHttpType;
+import com.healthtracker.constant.TopicOperation;
+import com.healthtracker.util.TopicUtils;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeansException;
@@ -18,7 +19,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class TopicValueAnnotationBeanPostProcessor implements BeanPostProcessor {
 
-    private static final String TOPICS_PREFIX = "kafka.topics";
     private final Environment env;
 
     @Override
@@ -26,7 +26,7 @@ public class TopicValueAnnotationBeanPostProcessor implements BeanPostProcessor 
         Class<?> beanClass = bean.getClass();
         Field[] declaredFields = beanClass.getDeclaredFields();
         for (Field field : declaredFields) {
-            TopicValue annotation = field.getAnnotation(TopicValue.class);
+            TopicName annotation = field.getAnnotation(TopicName.class);
             if (annotation != null) {
                 String value = generateTopicValue(annotation);
                 field.setAccessible(true);
@@ -41,12 +41,12 @@ public class TopicValueAnnotationBeanPostProcessor implements BeanPostProcessor 
         return BeanPostProcessor.super.postProcessAfterInitialization(bean, beanName);
     }
 
-    private String generateTopicValue(TopicValue annotation) {
+    private String generateTopicValue(TopicName annotation) {
         String entity = annotation.entity();
         TopicAction action = annotation.action();
-        TopicHttpType httpType = annotation.httpType();
+        TopicOperation httpType = annotation.httpType();
 
-        String propertyPath = buildPropertyPath(entity, action, httpType);
+        String propertyPath = TopicUtils.buildTopicPropertyPath(entity, action.name(), httpType.getName());
         String property = env.getProperty(propertyPath);
 
         if (StringUtils.isBlank(property)) {
@@ -54,10 +54,6 @@ public class TopicValueAnnotationBeanPostProcessor implements BeanPostProcessor 
         }
 
         return property;
-    }
-
-    private String buildPropertyPath(String entity, TopicAction action, TopicHttpType httpType) {
-        return TOPICS_PREFIX + "." + entity.toLowerCase() + "." + action.name().toLowerCase() + "-" + httpType.name().toLowerCase();
     }
 
 }

@@ -1,7 +1,8 @@
 package com.healthtracker.kafka;
 
 import com.healthtracker.constant.TopicAction;
-import com.healthtracker.constant.TopicHttpType;
+import com.healthtracker.constant.TopicOperation;
+import com.healthtracker.util.TopicUtils;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.ConfigurableEnvironment;
@@ -51,14 +52,14 @@ public class Topics {
 
     private static Stream<Map.Entry<String, String>> buildOperations(String entity, TopicAction action) {
         return Stream.concat(
-                Stream.of(buildTopicNamesMap(action.getPrefix(), entity, TopicHttpType.REQUEST)),
-                Stream.ofNullable(action.isResponseRequired() ? buildTopicNamesMap(action.getPrefix(), entity, TopicHttpType.RESPONSE) : null)
+                Stream.of(buildTopicNamesMap(action.getPrefix(), entity, TopicOperation.REQUEST)),
+                Stream.ofNullable(action.isResponseRequired() ? buildTopicNamesMap(action.getPrefix(), entity, TopicOperation.RESPONSE) : null)
         );
     }
 
-    private static Map.Entry<String, String> buildTopicNamesMap(String actionName, String entity, TopicHttpType operation) {
+    private static Map.Entry<String, String> buildTopicNamesMap(String actionName, String entity, TopicOperation operation) {
         return Map.entry(
-                "kafka.topics." + entity + "." + actionName + "-" + operation.getName(),
+                TopicUtils.buildTopicPropertyPath(entity, actionName, operation.getName()),
                 actionName + "-" + entity + "-" + operation.getName());
     }
 
