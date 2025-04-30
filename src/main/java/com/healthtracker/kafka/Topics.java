@@ -1,5 +1,7 @@
 package com.healthtracker.kafka;
 
+import com.healthtracker.constant.TopicAction;
+import com.healthtracker.constant.TopicHttpType;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.ConfigurableEnvironment;
@@ -43,50 +45,21 @@ public class Topics {
     }
 
     private static Stream<Map.Entry<String, String>> buildActions(String entity) {
-        return Arrays.stream(Action.values())
+        return Arrays.stream(TopicAction.values())
                 .flatMap(action -> buildOperations(entity, action));
     }
 
-    private static Stream<Map.Entry<String, String>> buildOperations(String entity, Action action) {
+    private static Stream<Map.Entry<String, String>> buildOperations(String entity, TopicAction action) {
         return Stream.concat(
-                Stream.of(buildTopicNamesMap(action.getPrefix(), entity, Operation.REQUEST)),
-                Stream.ofNullable(action.isResponseRequired() ? buildTopicNamesMap(action.getPrefix(), entity, Operation.RESPONSE) : null)
+                Stream.of(buildTopicNamesMap(action.getPrefix(), entity, TopicHttpType.REQUEST)),
+                Stream.ofNullable(action.isResponseRequired() ? buildTopicNamesMap(action.getPrefix(), entity, TopicHttpType.RESPONSE) : null)
         );
     }
 
-    private static Map.Entry<String, String> buildTopicNamesMap(String actionName, String entity, Operation operation) {
+    private static Map.Entry<String, String> buildTopicNamesMap(String actionName, String entity, TopicHttpType operation) {
         return Map.entry(
                 "kafka.topics." + entity + "." + actionName + "-" + operation.getName(),
                 actionName + "-" + entity + "-" + operation.getName());
-    }
-
-    @Getter
-    private enum Action {
-        LIST("list", true),
-        SAVE("save", true),
-        GET("get", true),
-        EDIT("edit", true),
-        DELETE("delete", false);
-
-        private final String prefix;
-        private final boolean responseRequired;
-
-        Action(String prefix, boolean responseRequired) {
-            this.prefix = prefix;
-            this.responseRequired = responseRequired;
-        }
-    }
-
-    @Getter
-    private enum Operation {
-        REQUEST("request"),
-        RESPONSE("response");
-
-        private final String name;
-
-        Operation(String name) {
-            this.name = name;
-        }
     }
 
 }
