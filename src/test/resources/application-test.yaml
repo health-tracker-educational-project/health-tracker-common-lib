@@ -1,0 +1,4 @@
+kafka:
+  topics:
+    test:
+      list-request: list-test-request
