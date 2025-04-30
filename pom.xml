@@ -5,13 +5,13 @@
 	<parent>
 		<groupId>com.healthtracker</groupId>
 		<artifactId>healthtracker-parent</artifactId>
-		<version>1.0.0</version>
+		<version>1.0.1</version>
 	</parent>
 
 	<packaging>jar</packaging>
 
 	<artifactId>healthtracker-common</artifactId>
-	<version>1.0.3</version>
+	<version>1.0.4</version>
 	<name>Health Tracker/Common</name>
 	<description>Health Tracker common library</description>
 
