@@ -44,7 +44,7 @@ public class TopicValueAnnotationBeanPostProcessor implements BeanPostProcessor 
     private String generateTopicValue(TopicName annotation) {
         String entity = annotation.entity();
         TopicAction action = annotation.action();
-        TopicOperation httpType = annotation.httpType();
+        TopicOperation httpType = annotation.operation();
 
         String propertyPath = TopicUtils.buildTopicPropertyPath(entity, action.name(), httpType.getName());
         String property = env.getProperty(propertyPath);

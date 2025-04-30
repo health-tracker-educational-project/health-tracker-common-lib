@@ -14,6 +14,6 @@ public @interface TopicName {
 
     String entity();
     TopicAction action() default TopicAction.GET;
-    TopicOperation httpType() default TopicOperation.REQUEST;
+    TopicOperation operation() default TopicOperation.REQUEST;
 
 }
