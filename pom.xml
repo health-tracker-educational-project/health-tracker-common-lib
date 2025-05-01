@@ -5,13 +5,13 @@
 	<parent>
 		<groupId>com.healthtracker</groupId>
 		<artifactId>healthtracker-parent</artifactId>
-		<version>1.0.0</version>
+		<version>1.0.1</version>
 	</parent>
 
 	<packaging>jar</packaging>
 
 	<artifactId>healthtracker-common</artifactId>
-	<version>1.0.3</version>
+	<version>1.0.4</version>
 	<name>Health Tracker/Common</name>
 	<description>Health Tracker common library</description>
 
@@ -35,6 +35,25 @@
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-commons</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-junit-jupiter</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.yaml</groupId>
+			<artifactId>snakeyaml</artifactId>
+			<scope>compile</scope>
 		</dependency>
 	</dependencies>
 
