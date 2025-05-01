@@ -30,7 +30,7 @@ java.
 <dependency>  
     <groupId>com.healthtracker</groupId>  
     <artifactId>healthtracker-common</artifactId>  
-    <version>1.0.3</version>  
+    <version>1.0.4</version>  
 </dependency>
 ```
 ### 5. Add annotation @DependsOn("topics") on your controllers.
@@ -66,3 +66,10 @@ For example:
 @KafkaListener(topics = "${kafka.topics.product.list-request}")
 ```
 **If you already have this do nothing!**
+### (new) 8. Added annotation @TopicName for topic name generation on fields:
+Usage: 
+```
+@TopicName(entity = "recipe", action = TopicAction.GET, operation = TopicOperation.REQUEST)
+private String topic; 
+```
+Generated string: get-recipe-request
