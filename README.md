@@ -30,7 +30,7 @@ java.
 <dependency>  
     <groupId>com.healthtracker</groupId>  
     <artifactId>healthtracker-common</artifactId>  
-    <version>1.0.4</version>  
+    <version>1.0.5</version>  
 </dependency>
 ```
 ### 5. Add annotation @DependsOn("topics") on your controllers.

@@ -5,13 +5,13 @@
 	<parent>
 		<groupId>com.healthtracker</groupId>
 		<artifactId>healthtracker-parent</artifactId>
-		<version>1.0.1</version>
+		<version>1.0.2</version>
 	</parent>
 
 	<packaging>jar</packaging>
 
 	<artifactId>healthtracker-common</artifactId>
-	<version>1.0.4</version>
+	<version>1.0.5</version>
 	<name>Health Tracker/Common</name>
 	<description>Health Tracker common library</description>
 
@@ -63,6 +63,8 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
+					<source>23</source>
+					<target>23</target>
 					<annotationProcessorPaths>
 						<path>
 							<groupId>org.projectlombok</groupId>
