@@ -6,6 +6,7 @@
 		<groupId>com.healthtracker</groupId>
 		<artifactId>healthtracker-parent</artifactId>
 		<version>1.0.2</version>
+		<relativePath/>
 	</parent>
 
 	<packaging>jar</packaging>
