@@ -23,6 +23,13 @@
 		</repository>
 	</distributionManagement>
 
+	<repositories>
+		<repository>
+			<id>ht-parent</id>
+			<url>https://maven.pkg.github.com/health-tracker-educational-project/health-tracker-parent</url>
+		</repository>
+	</repositories>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
