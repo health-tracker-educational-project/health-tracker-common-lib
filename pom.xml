@@ -15,6 +15,14 @@
 	<name>Health Tracker/Common</name>
 	<description>Health Tracker common library</description>
 
+	<distributionManagement>
+		<repository>
+			<id>ht-common-lib</id>
+			<name>GitHub OWNER Apache Maven Packages</name>
+			<url>https://maven.pkg.github.com/health-tracker-educational-project/health-tracker-common-lib</url>
+		</repository>
+	</distributionManagement>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
