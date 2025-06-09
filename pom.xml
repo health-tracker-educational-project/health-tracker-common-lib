@@ -16,13 +16,6 @@
 	<name>Health Tracker/Common</name>
 	<description>Health Tracker common library</description>
 
-	<repositories>
-		<repository>
-			<id>ht-parent</id>
-			<url>https://maven.pkg.github.com/health-tracker-educational-project/health-tracker-parent</url>
-		</repository>
-	</repositories>
-
 	<distributionManagement>
 		<repository>
 			<id>ht-common-lib</id>
