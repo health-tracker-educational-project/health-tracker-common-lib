@@ -23,8 +23,6 @@ jobs:
         with:
           java-version: '23'
           distribution: 'temurin'
-          server-id: ht-common-lib # Value of the distributionManagement/repository/id field of the pom.xml
-          settings-path: ${{ github.workspace }} # location for the settings.xml file
 
       - name: Configure settings.xml for GitHub Packages
         uses: s4u/maven-settings-action@v3.1.0
