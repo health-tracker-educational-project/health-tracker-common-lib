@@ -16,6 +16,13 @@
 	<name>Health Tracker/Common</name>
 	<description>Health Tracker common library</description>
 
+	<repositories>
+		<repository>
+			<id>ht-parent</id>
+			<url>https://maven.pkg.github.com/health-tracker-educational-project/health-tracker-parent</url>
+		</repository>
+	</repositories>
+
 	<distributionManagement>
 		<repository>
 			<id>ht-common-lib</id>
@@ -23,13 +30,6 @@
 			<url>https://maven.pkg.github.com/health-tracker-educational-project/health-tracker-common-lib</url>
 		</repository>
 	</distributionManagement>
-
-	<repositories>
-		<repository>
-			<id>ht-parent</id>
-			<url>https://maven.pkg.github.com/health-tracker-educational-project/health-tracker-parent</url>
-		</repository>
-	</repositories>
 
 	<dependencies>
 		<dependency>
